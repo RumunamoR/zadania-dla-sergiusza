@@ -1,0 +1,138 @@
+using System;
+
+namespace na_zajęciach2
+{
+    class Program
+    {
+       // static void Main(string[] args)
+       // {
+      //      Console.WriteLine("Hello World!");
+         
+       // }
+        static void sterowanie_przepływem_ciąg_dalszy()
+        {
+            int i;
+            int k = 10;
+            i = Convert.ToInt32(Console.ReadLine());
+
+            if (i >= 20)
+            {
+                if (k < 5)
+                {
+                    Console.WriteLine("mniejsze niz dwaiścia a k jest mniejsze niz 5");
+                }
+            }
+            else if (i < 10)
+            {
+                Console.WriteLine("winksze niz dwaiścia");
+            }
+            else;
+            {
+                Console.WriteLine("inne");
+            }
+
+        }
+        static void ćwiczenie1()
+        {
+            int c;
+
+            for (c = 0; c < 100; c++);
+            Console.WriteLine("gotuj wodę");
+            if (c == 0)
+            {
+                Console.WriteLine("dodaj sól i gotuj wodę");
+            }
+            else if (c < 100)
+            {
+                Console.WriteLine("gotuj dalej");
+            }
+            else
+            {
+                Console.WriteLine("wrzuć jajko i gotuj przez 5 min");
+            }
+
+        }
+        class program1
+        {
+            static int temp_wody = 0;
+            static bool jest_sol = false;
+            static void zagrzej_wode()
+            {
+                temp_wody += 1;
+                Console.WriteLine("woda ma temperature {0}", temp_wody);
+            }
+            
+            static void dodaj_sol(int czy_dodano)
+            {
+                if(jest_sol == true)
+                {
+                    Console.WriteLine("Sól dodana nie wsypój więcej");
+                }
+                else
+                {
+                    Console.WriteLine("Dodaję sól");
+                    jest_sol = true;
+                }
+            }
+
+            static void gotowanie_jajka()
+            {
+                zagrzej_wode();
+                dodaj_sol(jest_sol);
+                if (temp_wody >= 100)
+                {
+                    wrzuc_jajko();
+                    czas_gotowania += 1;
+
+                    if (czas_gotowania >= 5)
+                    {
+                        Console.WriteLine("ugotowane jako");
+                    }
+                }
+                else 
+                {
+                    gotowanie_jajka();
+                }
+            }
+        }
+        class program2
+        {
+            int moja_w = 0;
+            switch(moja_w)
+                case 0:
+                dla_zera();
+                break;
+            case 1:
+            dla_jedynki();
+                break;
+                case 2:
+                dla_dwójki();
+            break;
+            default:
+            cokolwiek();
+            break;
+    }
+        static void zadanie2() //bruh co w sumie static zeczy robią xd
+        {
+            ArreyList abc = new ArreyList();
+            abc.Add("słowo");
+            abc.Add(true);
+            abc.Add(324);
+            abc.Add("słowo2");
+
+            switch (type.GetType().Name)
+            {
+                case "int32":
+                    Console.WriteLine("to jest int");
+                    break;
+                case "String":
+                    Console.WriteLine("to jest string");
+                    break;
+                case "Boolean":
+                    Console.WriteLine("to jest boolean");
+                    break;
+                default:
+                    Console.WriteLine("to jest coś")
+            }
+        }
+}
