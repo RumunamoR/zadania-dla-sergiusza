@@ -1,0 +1,116 @@
+using System;
+
+namespace ćwiczenia_04._01
+{
+    class Program
+    {
+        static bool czy_parzysta(int liczba)
+        {
+            if (liczba % 2 == 0)
+                return true;
+            else return false;
+        }
+        static long silnia(int n)
+        {
+            long wynik = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                wynik = wynik * i;
+            }
+            return wynik;
+        }
+        static int potega(int n, int m)
+        {
+            int wynik = n; 
+            for(int x =1; x > m; x++)
+            {
+                wynik = wynik * n;
+            }
+            return wynik;
+        }
+
+        static void Main(string[] args)
+        {
+            //zadanie1();
+            //zadanie2();
+            //zadanie3();
+            //zadanie4();
+            zadanie5();
+            Console.WriteLine("koniec");
+        }
+        static void zadanie1()
+        {
+            //zadaeklarowac tablice 10-elementową i wypełnić dowolnymi różnymi wartościami liczbowymi
+            int[] tab1 = { 3, 23, 45, 65, 47, 45, 654, 44, 17, 98 };
+            // zadaeklarować tablice 100 elementową
+            int[] tab2 = new int [100];
+            for(int x = 0; x < tab2.Length; x++)
+            {
+                tab2[x] = 1;
+            }
+            foreach(int el in tab2)
+            {
+                Console.WriteLine(el);
+            }
+        }
+        static void zadanie2()
+        {
+            //do tablicy 20 elementów wpisac kolejne parzyste wartości rozpoczynając od 100
+            int[] tab = new int[20];
+            for(int x = 0; x < tab.Length; x++)
+            {
+                tab[x] = 100 + 2*x;
+            }
+            foreach(int x in tab)
+            {
+                Console.WriteLine(x);
+            }
+        }
+        static void zadanie3()
+        {
+            //generujemy liczby pseudolosowe
+            //Random los = new Random(); //tworzenie obiektu los klasy random
+            //Console.WriteLine(los.Next(4, 10));            //liczba w nawiasie to granice, liczba po lewej(liczba minimalna) jest w zbiorze mozliwych do wylosowania, liczba po prawej(wartośc maxymalna) nie
+                                                           // każde wywołanie nexta da inną wartość
+                                                           //wypełnic tablice warościami losowymi z przedziału [10 ; 30]
+            Random los = new Random();
+            int[] tab = new int[10];
+            for(int x = 1; x < tab.Length; x++)
+            {
+                tab[x] = los.Next(10, 31);
+            }
+            foreach(int y in tab)
+            {
+                Console.WriteLine(y);
+            }
+        }
+        static void zadanie4()
+        {
+            // wypełnic tablice 25 elementową liczbami losowymi z przedziału [100; 1000]
+            // policzyc ile jest liczb parzystych
+            Random liczba = new Random();
+            int[] tablica = new int[25];
+            int ile = 0;
+            for(int x = 0; x < tablica.Length; x++)
+            {
+                tablica[x] = liczba.Next(100, 1001);
+            }
+            for(int x = 0; x< tablica.Length; x++)
+            {
+                if (tablica[x] % 2 == 0)
+                    ile++;
+            }
+            Console.WriteLine("tle liczb było losowe {0}", ile);
+            //int[,] tablica_2wymiarowa = new int[4, 3];// tablica 2 wymiarowa, zawierająca 4 *3 elementów
+            // tablice wielowymiarowe obsługuje sie tak samo jak jednowymiarowe, tylko mają więcej wymiarów
+        }
+        static void zadanie5()
+        {
+            //napisac funkce zwracającą prawde gdy argument jest parzysty i fałsz gdy argument jest nieparzysty
+            Console.WriteLine(czy_parzysta(33));
+            Console.WriteLine(silnia(5));
+            //napisać funkcje potega(n,m) obliczjącą potenge n do m
+            Console.WriteLine(potega(3, 4));
+        }
+    }
+}
