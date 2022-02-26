@@ -1,0 +1,70 @@
+using System;
+
+namespace _18._01._2022_ćwiczenia
+{
+    class Program
+    {
+        static long silnia_rek (int n)
+        {
+            long wynik = 1;
+            if (n == 1)
+                return wynik;
+            wynik = silnia_rek(n - 1) * n;
+            return wynik;
+        }
+        static long potęga (int x, int y)
+        {
+            long wynik = 1;
+            for(int a = 1; a<=y; a++)
+            {
+                wynik = wynik * x;
+            }
+            return wynik;
+        }
+        static int potęga_rek (int x, int y)
+        {
+            int wynik = 1;
+            if (y == 0)
+                return wynik;
+            wynik = potęga_rek(x, y - 1) * x;
+            return wynik;
+        }
+        static void Main(string[] args)
+        {
+            //zadanie1();
+            zadanie2();
+            //zadanie3();
+            Console.WriteLine("koniec");
+        }
+        static void zadanie1()
+        {
+            //napisać iteracyjnie funkcje obliczającą x do potęgi y
+            //Console.WriteLine(potęga(3, 2));
+            //napisać funkcje rekurencyjnie x do y 2^3 = 2 * 2 * 2 = 2^2 * 2 = 2^1 * 2 * 2 = 2 * 2 * 2 * 2^0
+            //Console.WriteLine(potęga_rek(2, 3));
+        }
+        static void zadanie2()
+        {
+            int[] tablica = new int[20];
+            Random losowe = new Random();
+            for(int x = 0; x < tablica.Length; x++)
+            {
+                tablica[x] = losowe.Next(101, 121);
+                for(int y = 0; y < x; y++)
+                {
+                    if (tablica[x] == tablica[y])
+                        tablica[x] = losowe.Next(101, 121);
+                }
+            }
+            
+            for(int x =0; x < tablica.Length; x++)
+            {
+                Console.WriteLine(tablica[x]);
+            }
+        }
+        static void zadanie3()
+        {
+
+        }
+    }
+}
