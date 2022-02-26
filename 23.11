@@ -1,0 +1,231 @@
+using System;
+
+namespace ćwiczenia_23._11._2021
+{
+    class Program
+    {
+        static void Main(string[] args) {
+            //zadanie_loopy();
+            //zadanie2();
+            //zadanie3();
+            //zadanie4();
+            //zadanie5();
+            //zadanie6();
+            //zadanie7();
+            zadanie_domowe();
+            Console.ReadLine();
+        }
+        static void zadanie_loopy()
+        {
+            //nie wiem co robie xd
+            for (int i = 0; i < 100; i++)
+            {
+                if ((100 - i) % 3 == 0)
+                    Console.WriteLine(i);
+            }
+        }
+        //wypisać liczby 1-10 pętlą while
+        static void zadanie2()
+        {
+            int licznik2 = 1;
+            while (licznik2 <= 10)
+            {
+                Console.WriteLine(licznik2);
+                licznik2++;
+            }
+        }
+        //wypisać parzyste od 100 do 0 pętlą while oraz do..while
+        static void zadanie3()
+        {
+            int licznik3 = 0;
+            while (licznik3 <= 100)
+            {
+                if (licznik3 % 2 == 0)
+                {
+                    Console.WriteLine(licznik3);
+                }
+                licznik3++;
+            }
+
+            // do while
+            int licznik4 = 0;
+            do
+            {
+                if (licznik4 % 2 == 0)
+                {
+                    Console.WriteLine(licznik4);
+                }
+                licznik4++;
+            } while (licznik4 <= 100);//miało być od 100 do zera  XD zrobiłem na odwrót
+        }
+        //zadanie4 poprosić usera o wpisanie tekstu 'q' prosić az wpisze
+        static void zadanie4()
+        {
+            string tekst;
+
+            Console.WriteLine("wpisz q");
+            tekst = Console.ReadLine();
+            Console.WriteLine(tekst);
+
+            while (tekst != "q")
+            {
+                Console.WriteLine("Wpisz q");
+                tekst = Console.ReadLine();
+                //while jest przydatne bo nie wiemy ile razy zjamie zanim użytkownik wpisze coś co nie jest literą q
+            }
+
+            do
+            {
+                Console.WriteLine("wpisz q");
+                tekst = Console.ReadLine();
+            } while (tekst != "q");
+            //przy pętli do..while nie trzeba na początku pytać o wpisanie q poza pętlą
+        }
+        //zadanie5 poprosić użytkownika o litere "q" napisać ile razy zajieło wpisanie q
+        static void zadanie5()
+        {
+            int ile = 0;
+            string litera;
+            do
+            {
+                Console.WriteLine("napisz q");
+                litera = Console.ReadLine();
+                ile++;
+            } while (litera != "q");
+            Console.WriteLine("{0} razy zajeło ci napisanie q", ile);
+        }
+        //narysuj kwadrat z znaków *
+        static void zadanie6()
+        {
+            for (int y = 1; y <= 4; y++)
+            {
+                for (int x = 1; x <= 4; x++)
+                {
+                    Console.Write("*");
+                    //write nie będzie dawało kazdej gwiazdki do osobnej linijki
+                }
+                Console.WriteLine();
+            }
+        }
+        //tabliczka mnożenia
+        static void zadanie7()
+        {
+            int wymiar = 2;//mozemy zmieniając tą zmienną zmieniać jaka duża jest tabliczka mnożenia
+
+            for (int y = 1; y<= wymiar; y++)
+            {
+                for (int x = 1; x <= wymiar; x++)
+                {
+                    Console.Write(x * y +"\t");//"\t" to tab- ładniej tabelka wyjdzie
+                    //if(x*y<50)
+                    //Console.Write(x*y+"\t")
+                    //else
+                    //Console.Write
+                }
+                Console.WriteLine();//tu nam to działa jak enter
+            }
+            //tabliczka mnożenia, liczby podzielne przez 10 zastąpione X
+            for(int y1=1; y1<=wymiar;y1++)
+            {
+                for(int x1=1; x1<=wymiar;x1++)
+                {
+                    if(x1*y1 % 10 == 0)
+                    {
+                        Console.Write("X \t");
+                    }
+                    else
+                    {
+                        Console.Write(x1 * y1 + "\t");
+                    }
+                }
+                Console.WriteLine();
+            }
+            //wypisać tabliczki o wymiarach 2x2 do 10x10
+            int ile = 0;
+            for(wymiar = 2; wymiar<=10; wymiar++)
+            {
+                for (int y2 = 1; y2 <= wymiar; y2++)
+                {
+                    for (int x2 = 1; x2 <= wymiar; x2++)
+                    {
+                        Console.Write(y2*x2 + "\t");
+                        ile++;
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("--------------------------------");
+            }
+            Console.WriteLine(ile);
+            //wyświetlanie tabliczek mnozenia 2x2 do 15x15 wykonać 10 razy. ile razy wyświetli sie x*y
+            int ile2 = 0;
+            for(int a =1;a<=10;a++)
+            {
+                for(wymiar =2; wymiar<=10; wymiar++)
+                {
+                    for (int y3=1; y3 <= wymiar; y3++)
+                    {
+                        for (int x3=1; x3 <= wymiar; x3++)
+                        Console.Write(x3*y3);
+                        ile2++;
+                    }
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine(ile2);
+            //tabliczka ale user wpisuje wymiar
+            Console.WriteLine("wpisz wymiar tabliczki mnożenia");
+            string tekst;
+            tekst = Console.ReadLine();
+
+            //wymiar = int.Parse(tekst);    parse jest spoko ale jak user wpisze bzdety to będzie słabo
+            //  int.TryParse jak user wpisze coś co nie jest liczbą to sie program nie wysypie bo sprawdza czy da się
+            bool sukces;
+            sukces = int.TryParse(tekst, out wymiar);
+
+            if (sukces == false)
+            {
+                Console.WriteLine("wpisałęś zły wymiar");
+            }
+            else
+            {
+                for (int y = 1; y <= wymiar; y++)
+                {
+                    for (int x = 1; x <= wymiar; x++)
+                    {
+                        Console.Write(x * y + "\t");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            //HOMEWORK; zmodyfikować do oporu pytać usera o poprawną wartość (liczba przedział 2-20)(oczywiśicie czy liczba)
+        }
+        static void zadanie_domowe()
+        {
+            int wymiar;
+            string tekst;
+            bool sens;
+
+            do
+            {
+                Console.WriteLine("podaj wielkość tabelki mnożenia między 2-20");
+                tekst = Console.ReadLine();
+                sens = int.TryParse(tekst, out wymiar);
+            } while (sens == false && wymiar <= 20 && wymiar >= 2);
+            if (sens == false)
+            {
+                Console.WriteLine("sens jest false");
+            }
+            else
+            {
+                if (wymiar <= 20)
+                {
+                    Console.WriteLine("wymiar <= 20");
+                }
+                if (wymiar >= 2)
+                {
+                    Console.WriteLine("wymiar >= 2");
+                }
+            }
+        }
+    }
+}
