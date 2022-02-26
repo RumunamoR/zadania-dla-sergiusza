@@ -1,0 +1,57 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            // normalnie moge shitpostować w kodzie
+            typ_referencyjny();
+            Console.ReadKey();
+        }
+        /// <summary>
+        /// sprawdzanie ile zajmie jaka zmienna 
+        /// </summary>
+        static void zimenne_przykład_1()
+        {
+            Console.WriteLine("moja zmienna typu int zajmuje {0}",sizeof(char));
+        }
+
+    static void typ_referencyjny()
+    {
+            int olek = 1500;
+            object o = olek;
+            int liczba = (int)o;
+            Console.WriteLine("moja liczba to:" + liczba.ToString());
+    }
+
+static void zmienne_lancuchowe();
+        // wprowadzanie danych klawą
+        static void wez_dane()
+        {
+            int liczba;
+            liczba = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("moja liczba to: \n{0}\a", liczba)
+        
+        }
+            
+
+    ///literały znakowe --> ogarnąć se samemu
+    static void sterowanie_przepływem()
+    { int i = 20;
+        if (i >= 20)
+        {
+            Console.WriteLine("jest większe albo równe");
+        }
+        else
+        { 
+        Console.WriteLine("niestety jest mniejsze")
+
+        }
+    }
+    
+    
+}
+}
